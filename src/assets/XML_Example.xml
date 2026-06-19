@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante 
+    xmlns:cfdi="http://www.sat.gob.mx/sitio_internet/cfd/4" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://sat.gob.mx http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" 
+    Version="4.0" 
+    Serie="A" 
+    Folio="12345" 
+    Fecha="2026-06-18T12:00:00" 
+    Sello="" 
+    FormaPago="01" 
+    NoCertificado="00001000000500000000" 
+    Certificado="" 
+    CondicionesDePago="Pago en una sola exhibición" 
+    SubTotal="1000.00" 
+    Moneda="MXN" 
+    Total="1160.00" 
+    TipoDeComprobante="I" 
+    Exportacion="01"
+    MetodoPago="PUE" 
+    LugarExpedicion="06000">
+    
+    <cfdi:Emisor 
+        Rfc="AAA010101AAA" 
+        Nombre="EMPRESA EJEMPLO SA DE CV" 
+        RegimenFiscal="601"/>
+        
+    <cfdi:Receptor 
+        Rfc="BBB010101BBB" 
+        Nombre="CLIENTE EJEMPLO" 
+        DomicilioFiscalReceptor="01000" 
+        RegimenFiscalReceptor="601" 
+        UsoCFDI="G01"/>
+        
+    <cfdi:Conceptos>
+        <cfdi:Concepto 
+            ClaveProdServ="84111506" 
+            Cantidad="1" 
+            ClaveUnidad="E48" 
+            Descripcion="Servicios de facturación" 
+            ValorUnitario="1000.00" 
+            Importe="1000.00" 
+            ObjetoImp="02">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado 
+                        Base="1000.00" 
+                        Impuesto="002" 
+                        TipoFactor="Tasa" 
+                        TasaOCuota="0.160000" 
+                        Importe="160.00"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+    </cfdi:Conceptos>
+    
+    <cfdi:Impuestos TotalImpuestosTrasladados="160.00">
+        <cfdi:Traslados>
+            <cfdi:Traslado 
+                Impuesto="002" 
+                TipoFactor="Tasa" 
+                TasaOCuota="0.160000" 
+                Importe="160.00" 
+                Base="1000.00"/>
+        </cfdi:Traslados>
+    </cfdi:Impuestos>
+    
+    <cfdi:Complemento>
+        <tfd:TimbreFiscalDigital 
+            xmlns:tfd="http://sat.gob.mx" 
+            xsi:schemaLocation="http://sat.gob.mx http://sat.gob.mx" 
+            Version="1.1" 
+            UUID="AAAAAA00-0000-0000-0000-000000000000" 
+            FechaTimbrado="2026-06-18T12:05:00" 
+            RfcProvCertif="PAC000000AAA" 
+            SelloCFD="" 
+            NoCertificadoSAT="" 
+            SelloSAT=""/>
+    </cfdi:Complemento>
+</cfdi:Comprobante>
